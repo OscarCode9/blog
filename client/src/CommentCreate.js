@@ -5,11 +5,18 @@ const CommentCreate = ({ postId }) => {
   const [content, setContent] = useState("");
 
   const onSubmit = async (event) => {
+    
     event.preventDefault();
 
-    await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
+    try {
+      await axios.post(`http://localhost:4001/posts/${postId}/comments`, {
       content,
     });
+    } catch (error) {
+      setContent("there has been an error, please try again later.");
+
+    }
+    
 
     setContent("");
   };
