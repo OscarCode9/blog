@@ -57,7 +57,7 @@ app.listen(4002, async () => {
     data: [],
   }
   try {
-    res = await axios.get("http://localhost:4005/events");
+    res = await axios.get("http://event-bus-srv:4005/events");
   } catch (error) {
     console.log("error", error);
   }
